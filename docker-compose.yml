@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+
+  mysql-db:
+    image: mysql:8.0.27
+    command: --init-file /data/app/bdd.sql
+    volumes:
+      - ./bdd.sql:/data/app/bdd.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_USER: root
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: toto
+      MYSQL_PASSWORD: tata
+    ports:
+      - "5000:5000"
